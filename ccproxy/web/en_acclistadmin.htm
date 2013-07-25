@@ -1,0 +1,124 @@
+<!-- header -->
+<html><head><title>CCProxy Account Manager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+body,td {font-family: "arial"; font-size: 9pt;}
+.button {  font-family: "Arial", "Helvetica", "sans-serif"; font-size: 9px; font-style: _italic; height: 18px; width: 50px}
+.editbox {font-family: "Arial", "Helvetica", "sans-serif"; font-size: 9px; height: 16px;}
+</style></head><body>
+<h3 align="center">CCProxy Account Manager </h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="0" id="t$userid">
+  <tr align="center"> 
+    <td nowrap width="0">&nbsp; </td>
+    <td nowrap width="0">&nbsp; </td>
+    <td nowrap width="0">Username </td>
+    <td nowrap width="0" align="center">Enabled </td>
+    <td nowrap width="0" align="center">Password </td>
+    <td nowrap width="0" align="center">IP Address</td>
+    <td nowrap width="0">MAC Address</td>
+    <td nowrap width="0" colspan="2">Connections </td>
+    <td nowrap width="0" colspan="2">Bandwidth </td>
+    <td nowrap width="0">Auto disable at </td>
+  </tr>
+  <form name="form" method="post" action="account">
+    <tr align="center"> 
+      <td nowrap width="0"> 
+        <input type="submit" name="add" value="Add" class="button">
+      </td>
+      <td nowrap width="0">&nbsp;</td>
+      <td nowrap width="0"> 
+        <input type="text" name="username" size="12" value="" class="editbox">
+      </td>
+      <td nowrap width="0" align="center"> 
+        <input type="checkbox" name="enable" value="1" checked>
+      </td>
+      <td nowrap width="0" align="center"> 
+        <input type="checkbox" name="usepassword" value="1" $checkusepassword>
+        <input type="text" name="password" size="8" value="" class="editbox">
+      </td>
+      <td nowrap width="0" align="center"> 
+        <input type="checkbox" name="useipaddress" value="1" $checkuseipaddress>
+        <input type="text" name="ipaddress" size="12" value="" class="editbox">
+      </td>
+      <td nowrap width="0"> 
+        <input type="checkbox" name="usemacaddress" value="1" $checkusemacaddress>
+        <input type="text" name="macaddress" size="12" value="" class="editbox">
+      </td>
+      <td nowrap width="0"> 
+        <input type="text" name="connection" size="4" value="-1" class="editbox">
+      </td>
+      <td nowrap width="0">&nbsp;</td>
+      <td nowrap width="0"> 
+        <input type="text" name="bandwidth" size="4" value="-1" class="editbox">
+      </td>
+      <td nowrap width="0">&nbsp;</td>
+      <td nowrap width="0"> 
+        <input type="checkbox" name="autodisable" value="1" $checkautodisable>
+        <input type="text" name="disabledate" size="10" value="$disabledate" class="editbox">
+        <input type="text" name="disabletime" size="8" value="$disabletime" class="editbox">
+      </td>
+    </tr>
+  </form>
+  <!-- body -->
+  <form name="form" method="post" action="account">
+    <input type=hidden name="userid" value="$username">
+    <tr align="center"> 
+      <td nowrap width="0"> 
+        <input type="submit" name="edit" value="Edit" class="button">
+      </td>
+      <td nowrap width="0"> 
+        <input type="submit" name="delete" value="Delete" class="button">
+      </td>
+      <td nowrap width="0"> 
+        <input type="text" name="username" size="12" value="$username" class="editbox">
+      </td>
+      <td nowrap width="0" align="center"> 
+        <input type="checkbox" name="enable" value="1" $checkenable>
+      </td>
+      <td nowrap width="0" align="center"> 
+        <input type="checkbox" name="usepassword" value="1" $checkusepassword>
+        <input type="text" name="password" size="8" value="$password" class="editbox">
+      </td>
+      <td nowrap width="0" align="center"> 
+        <input type="checkbox" name="useipaddress" value="1" $checkuseipaddress>
+        <input type="text" name="ipaddress" size="12" value="$ipaddress" class="editbox">
+      </td>
+      <td nowrap width="0"> 
+        <input type="checkbox" name="usemacaddress" value="1" $checkusemacaddress>
+        <input type="text" name="macaddress" size="12" value="$macaddress" class="editbox">
+      </td>
+      <td nowrap width="0"> 
+        <input type="text" name="connection" size="4" value="$connection" class="editbox">
+        </td>
+      <td nowrap width="0">$activeconn</td>
+      <td nowrap width="0"> 
+        <input type="text" name="bandwidth" size="4" value="$bandwidth" class="editbox">
+      </td>
+      <td nowrap width="0">$curbandwidth </td>
+      <td nowrap width="0"> 
+        <input type="checkbox" name="autodisable" value="1" $checkautodisable>
+        <input type="text" name="disabledate" size="10" value="$disabledate" class="editbox">
+        <input type="text" name="disabletime" size="8" value="$disabletime" class="editbox">
+      </td>
+    </tr>
+  </form>
+  <!-- tail -->
+</table>
+<form name="form" method="post" action="account">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td nowrap> Admin Password 
+        <input type="text" name="adminpassword" size="8" value="$adminpassword" class="editbox">
+        <input type="submit" name="changeadminpassword" value="Modify" class="button">
+        <input type="submit" name="refresh" value="Refresh" class="button">
+        <input type="submit" name="logout" value="Logout" class="button">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>Total connections in account/Total users in account - $totalconn/$totaluser<br>
+  Total connections online/Total users online - $totalactiveconn/$totalactiveuser<br>
+Total bandwidth - $totalbandwidth<br>
+Server Time: $disabledate $disabletime</p>
+</body>
+</html>

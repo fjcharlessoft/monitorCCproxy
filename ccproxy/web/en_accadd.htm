@@ -1,0 +1,71 @@
+<form name="form" method="post" action="account">
+<input type="hidden" name="autodisable" size="1" value="1">
+<input type="hidden" name="enable" size="1" value="1">
+<input type=hidden name="usepassword" value="1">
+<input type=hidden name="userid" value="-1">
+<input type=hidden name="enablewww" value="0">
+<input type=hidden name="enabletelnet" value="0">
+<input type=hidden name="enabledial" value="0">
+<input type=hidden name="enableftp" value="0">
+<input type=hidden name="enablesocks" value="1">
+<input type=hidden name="enableothers" value="0">
+<input type=hidden name="enablemail" value="0">
+  <table width="100%" border="1" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td nowrap width="0"> 
+        <input type="submit" name="add" value="Add">
+      </td>
+
+      <td nowrap width="0">Username 
+        <input type="text" name="username" size="12" value="">
+      </td>
+      <td nowrap width="0">Password 
+        <input type="text" name="password" size="8" value="">
+      </td>
+      <td nowrap width="0">Connections 
+        <input type="text" name="connection" size="4" value="10">
+      </td>
+      <td nowrap width="0">Bandwidth 
+        <input type="text" name="bandwidth" size="4" value="-1">
+      </td>
+      <td nowrap width="0">Auto disable at
+        <input type="text" name="disabledate" size="10" value="$disabledate"><input type="text" name="disabletime" size="8" value="$disabletime">
+      </td>
+    </tr>
+  </table>
+  </form>
+<form name="form" method="post" action="account">
+  <table width="100%" border="1" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td nowrap> Admin Password 
+        <input type="text" name="adminpassword" size="8" value="$adminpassword">
+        <input type="submit" name="changeadminpassword" value="Modify Password">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>Total connections in account/Total users in account - $totalconn/$totaluser<br>
+  Total connections online/Total users online - $totalactiveconn/$totalactiveuser<br>
+Total bandwidth - $totalbandwidth</p>
+Local Time:
+<script language="javascript">
+<!--
+{
+var time = new Date()
+var hours = time.getHours()
+var minutes = time.getMinutes()
+var day = time.getDate()
+var month = time.getMonth()
+var year = time.getFullYear()
+var seconds = time.getSeconds()
+day = ((day < 10) ? "0" : "") + day
+month = month + 1
+month = ((month < 10) ? "0" : "") + month
+hours=((hours < 10) ? "0" : "") + hours
+minutes=((minutes < 10) ? "0" : "") + minutes
+seconds=((seconds < 10) ? "0" : "") + seconds
+var clock = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds
+document.write(clock)
+}
+-->
+ </script>

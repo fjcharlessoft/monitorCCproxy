@@ -1,0 +1,106 @@
+<style>
+body,td {  font-family: "arial", "helvetica", "sans-serif";}
+</style>
+<title>CCProxy Config</title>
+<script language=javascript>
+function clickcheck(v)
+{
+for(i = 0; i < document.forms[0].elements.length ; i ++)
+{
+	var e = document.forms[0].elements[i];
+	if(e.name == v.name)
+	{
+			   if(v.checked == true)
+			   {
+		   		e.value = "1";
+			   }else{
+				e.value = "0";
+                           }
+			};
+		}
+}
+</script>
+    <form method="post" action="/config">
+  <table border="1" cellpadding="0" cellspacing="0" width="612" >
+    <tr> 
+      <td >Protocol</td>
+      <td >Port</td>
+    </tr>
+    <tr>
+      <td > 
+        <input type="checkbox" name="system$StartHTTP" value="<%system$StartHTTP%>" onclick="javascript:clickcheck(this)">
+         HTTP+RTSP 
+        <input type="hidden" name="system$StartHTTP" value="<%system$StartHTTP%>">
+<input type="checkbox" name="system$StartSecure" value="<%system$StartSecure%>" onclick="javascript:clickcheck(this)">
+         Secure 
+        <input type="hidden" name="system$StartSecure" value="<%system$StartSecure%>">
+<input type="checkbox" name="system$StartFTPWeb" value="<%system$StartFTPWeb%>" onclick="javascript:clickcheck(this)">
+         FTP(web)
+        <input type="hidden" name="system$StartFTPWeb" value="<%system$StartFTPWeb%>">
+<input type="checkbox" name="system$StartGopher" value="<%system$StartGopher%>" onclick="javascript:clickcheck(this)">
+         Gopher
+        <input type="hidden" name="system$StartGopher" value="<%system$StartGopher%>">
+
+      </td><td  > 
+        <input type="text" name="Port$HTTP" value="<%Port$HTTP%>"></td>
+    </tr>
+   <tr><td>
+      
+<input type="checkbox" name="system$StartSocks" value="<%system$StartSocks%>" onclick="javascript:clickcheck(this)">
+         SOCKS 
+        <input type="hidden" name="system$StartSocks" value="<%system$StartSocks%>">
+<input type="checkbox" name="system$StartSocks4" value="<%system$StartSocks4%>" onclick="javascript:clickcheck(this)">
+         SOCKS4 
+        <input type="hidden" name="system$StartSocks4" value="<%system$StartSocks4%>">
+</td><td><input type="text" name="Port$SOCKS" value="<%Port$SOCKS%>">
+</td>
+</tr>
+
+<tr><td>
+<input type="checkbox" name="system$StartFTP" value="<%system$StartFTP%>" onclick="javascript:clickcheck(this)">
+         FTP 
+        <input type="hidden" name="system$StartFTP" value="<%system$StartFTP%>">
+</td>
+<td><input type="text" name="Port$FTP" value="<%Port$FTP%>">
+</td>
+</tr>
+<tr><td>
+<input type="checkbox" name="system$StartTelnet" value="<%system$StartTelnet%>" onclick="javascript:clickcheck(this)">
+         Telnet 
+        <input type="hidden" name="system$StartTelnet" value="<%system$StartTelnet%>">
+</td>
+<td>
+<input type="text" name="Port$Telnet" value="<%Port$Telnet%>">
+</td>
+</tr>
+<tr><td>
+<input type="checkbox" name="system$StartNews" value="<%system$StartNews%>" onclick="javascript:clickcheck(this)">
+         News 
+        <input type="hidden" name="system$StartNews" value="<%system$StartNews%>">
+</td>
+<td><input type="text" name="Port$News" value="<%Port$News%>">
+</td>
+</tr>
+<tr>
+<td>
+<input type="checkbox" name="system$StartAdmin" value="<%system$StartAdmin%>" onclick="javascript:clickcheck(this)">
+         Admin
+        <input type="hidden" name="system$StartAdmin" value="<%system$StartAdmin%>">
+</td>
+<td><input type="text" name="Port$Admin" value="<%Port$Admin%>">
+</td>
+</tr>
+<tr>
+<td>Socket Idle Timeout(minute)
+</td>
+<td><input type="text" name="system$SocketIdleTimeout" value="<%system$SocketIdleTimeout%>">
+</td>
+</tr>
+  </table>
+
+<input type="checkbox" name="system$DisableExternalUser" value="<%system$DisableExternalUser%>" onclick="javascript:clickcheck(this)">
+         Desable External User 
+<input type="hidden" name="system$DisableExternalUser" value="<%system$DisableExternalUser%>">
+        <br><br>
+<input type="submit" value="Submit">
+    </form>

@@ -1,0 +1,17 @@
+<style>
+body,td {  font-family: "arial", "helvetica", "sans-serif";}
+</style>
+<title>CCProxy Logs</title>
+CCProxy Logs
+<table border="1"  cellpadding="0" cellspacing="0">
+  <tr> 
+    <td width="100">User</td>
+    <td width="">Connections/Max</td>
+  </tr>
+  <%list$account%>
+  <tr>
+    <td width="100"><a href="log?username=<%userinfo$account%>"><%userinfo$account%></a></td>
+    <td width=""><%userinfo$connection%></td>
+  </tr>
+  <%end%>
+</table>
