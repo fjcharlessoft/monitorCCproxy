@@ -55,7 +55,7 @@ using namespace std;
 
 
 
-
+#define SINGE_TRAY	_T("360tray.exe")
 
 
 

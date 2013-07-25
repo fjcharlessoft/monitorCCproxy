@@ -32,9 +32,21 @@ CMy360trayApp theApp;
 
 
 // CMy360trayApp initialization
-
+HANDLE hMutex= NULL;
 BOOL CMy360trayApp::InitInstance()
 {
+
+	CString StrName=SINGE_TRAY;//程序(进程)名
+	hMutex=OpenMutex(MUTEX_ALL_ACCESS,FALSE,StrName);
+	if(hMutex==NULL)
+	{
+		hMutex=::CreateMutex(NULL,NULL,StrName);
+	}
+	else
+	{
+		return false;
+	}
+
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
